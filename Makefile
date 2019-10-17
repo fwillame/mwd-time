@@ -10,7 +10,7 @@ DTARGET := $(TARGET).$(DATE).tsv
 all: $(DTARGET)
 
 MWD_DIR := $(TARGET)
-MWD_SRC := $(shell find $(MWD_DIR) -name '*.MWD')
+MWD_SRC := $(shell find -L $(MWD_DIR) -name '*.MWD')
 
 $(DTARGET): $(MWD_SRC)
 	@./mwd-time.awk $^ > $@
