@@ -29,7 +29,7 @@ FNR ==  1 {print "\n"FILENAME}			# filename
 FNR ==  3 {print $1}				# hole number
 FNR ==  5 {print $1}				# hole type
 FNR ==  7 {gsub(/\//,"-",$1); print}		# date at rockcontact (as YYYY-MM-DD)
-FNR == 	7 {print $2}				# time at rockcontact
+FNR ==  7 {print $2}				# time at rockcontact
 FNR ==  9 {print $1}				# boom
 FNR == 11 {print $1}				# section number [mm]
 FNR == 17 {print $1}				# rig serial number
