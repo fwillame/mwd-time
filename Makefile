@@ -13,7 +13,7 @@ MWD_DIR := $(TARGET)
 MWD_SRC := $(shell find $(MWD_DIR) -name '*.MWD')
 
 $(DTARGET): $(MWD_SRC)
-	@./get-mwd-drilling.awk $^ > $@
+	@./mwd-time.awk $^ > $@
 	@echo "$(DTARGET) done"
 
 clean:
