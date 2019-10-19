@@ -1,18 +1,20 @@
 #!/usr/bin/gawk -f
 
 function get_date (timestamp) {
-	if (match(timestamp, /(....)\/(..)\/(..) (..):(..):(..)/, m)){
-		t = mktime(m[1] " " m[2] " " m[3] " " m[4] " " m[5] " " m[6])}
-		else { t  = mktime("1978 04 08 11 45 00") }
+	t = mktime(gensub(/[\/:]/," ","g",timestamp))	
 	return strftime("%F", t)
 	}
 
 function get_time (timestamp) {
-	if (match(timestamp, /(....)\/(..)\/(..) (..):(..):(..)/, m)){
-		t = mktime(m[1] " " m[2] " " m[3] " " m[4] " " m[5] " " m[6])}
-		else { t  = mktime("1978 04 08 11 45 00") }
+	t = mktime(gensub(/[\/:]/," ","g",timestamp))
 	return strftime("%T", t)
 	}
+
+function get_type (path,i) {
+	split(path,a,"/");
+	return a[i]
+	}
+
 
 BEGIN{	FS="\t|\r|\n";
 	# "[ \t\n]+";
@@ -33,7 +35,11 @@ print					\
 	"tunnel",			\
 	"start time",			\
 	"hole deep [mm]",		\
-	"stop time"
+	"stop time",			\
+	"project_id",			\
+	"tunnel_id",			\
+	"type of drilling",		\
+	"section number [m]"		\
 	}
 
 BEGINFILE {
@@ -56,4 +62,5 @@ FNR == 18 {print $1}				# RCS
 FNR == 20 {print $1}				# tunnel
 FNR == 23 {print $10}				# start time
 FNR == (numLines-7) {print $1}			# hole deep (lenght of stroke) [mm]
-FNR == (numLines-7) {print $10; nextfile}	# stop time
+FNR == (numLines-7) {print $10}			# stop time
+FNR == (numLines) {print get_type(FILENAME,1), get_type(FILENAME,2), get_type(FILENAME,3), get_type(FILENAME,4); nextfile}
