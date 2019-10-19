@@ -21,6 +21,6 @@ clean:
 
 push: $(DTARGET)
 	scp $^ $(USER)@$(HOST):$(PUBDIR)
-
+	@echo "upload done"
 pull:
 	@echo "download from ..."
