@@ -1,0 +1,29 @@
+USER = willame
+HOST = ssh.willame.se
+PUBDIR = /home/willame/www/work/e4fs
+keyID = francois.willame@gmail.com
+TARGET := FSE613
+
+# https://stackoverflow.com/questions/29314555/using-awk-to-print-number-of-lines-in-file-in-the-begin-section
+# https://unix.stackexchange.com/questions/414725/calculate-time-difference-between-two-lines
+# https://stackoverflow.com/questions/37531525/calculate-time-difference-using-awk
+# https://stackoverflow.com/questions/33802783/format-and-compute-time-difference-between-dates-awk-sed
+# http://www.theunixschool.com/2013/01/gawk-calculate-date-time-difference-timestamp.html
+# https://stackoverflow.com/questions/29314555/using-awk-to-print-number-of-lines-in-file-in-the-begin-section
+# https://unix.stackexchange.com/questions/464269/make-awk-process-a-huge-fileset-with-a-single-process
+# https://stackoverflow.com/questions/33479787/display-and-or-use-awk-filename-on-empty-files/33555908#33555908
+# https://askubuntu.com/questions/475694/awk-command-to-print-all-the-lines-except-the-last-three-lines (for optimizing)
+# https://stackoverflow.com/questions/451413/make-makefile-progress-indication
+# http://www.theunixschool.com/2013/01/gawk-calculate-date-time-difference-timestamp.html
+# https://stackoverflow.com/questions/3774568/makefile-issue-smart-way-to-scan-directory-tree-for-c-files
+# http://www.theunixschool.com/2013/01/gawk-calculate-date-time-difference-timestamp.html
+# https://stackoverflow.com/questions/3774568/makefile-issue-smart-way-to-scan-directory-tree-for-c-files
+# time find FSE613/ -name '*.MWD' -exec ./get-mwd-drilling.awk {} \; > test2.tsv
+# time find FSE613/ -name '*.MWD' | xargs ./get-mwd-drilling.awk > test4.tsv
+# https://stackoverflow.com/questions/35527405/reformatting-date-times-with-awk
+# https://stackoverflow.com/questions/37531525/calculate-time-difference-using-awk
+# https://stackoverflow.com/questions/53811242/calculate-time-differences-from-different-columns-bash
+# http://www.theunixschool.com/2013/01/gawk-calculate-date-time-difference-timestamp.html
+# http://www.theunixschool.com/2012/04/date-gnu-date.html
+# http://www.theunixschool.com/2013/01/gawk-date-and-time-calculation-functions.html
+# http://www.theunixschool.com/2013/01/gawk-date-and-time-calculation-functions.html
