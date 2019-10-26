@@ -1,8 +1,9 @@
 #!/usr/bin/make -f
 
 TARGET := test
+keyID = francois.willame@gmail.com
 
-include Makefile.defs
+-include Makefile.defs
 
 DATE := $(shell date -I)
 DTARGET := $(TARGET).$(DATE).tsv
@@ -24,3 +25,12 @@ push: $(DTARGET)
 	@echo "upload done"
 pull:
 	@echo "download from ..."
+
+lock: Makefile.defs
+	cat $< | gpg -ear $(keyID) -o $<.gpg
+	rm $<
+
+unlock: Makefile.defs.gpg
+	cat $< | gpg -dr $(keyID) -o $(patsubst %.gpg,%,$<)
+	rm $<
+
